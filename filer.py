@@ -15,9 +15,11 @@ class Filer(object):
     # returns url of archived file
     def archive_file(self, url = ''):
         # checks
+        if url.lower().endswith('.zip'):
+            return url
+        if url.lower().endswith('.rar'):
+            return url
         if self._create_work_dir() != True :
-            return None
-        if len(os.listdir(url)) <= 0 : 
             return None
         if len(url) <= 0 :
             return None
